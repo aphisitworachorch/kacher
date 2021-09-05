@@ -1,4 +1,5 @@
-# kacher
+[![Kacher Logo](kacher-logo.png)]()
+# Kacher
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Travis](https://img.shields.io/travis/aphisitworachorch/kacher.svg?style=flat-square)]()
@@ -8,7 +9,8 @@
 `composer require aphisitworachorch/kacher`
 
 ## Usage
-Write a few lines about the usage of this package.
+- For listing all tables in database : php artisan dbml:list
+- For Parse from DB to DBML : php artisan dbml:parse
 
 ## Testing
 Run the tests with:
@@ -16,12 +18,6 @@ Run the tests with:
 ``` bash
 vendor/bin/phpunit
 ```
-
-## Changelog
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Contributing
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
