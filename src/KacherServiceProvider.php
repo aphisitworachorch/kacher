@@ -2,8 +2,8 @@
 
 namespace Aphisitworachorch\Kacher;
 
-use Aphisitworachorch\Console\Commands\DBML;
-use Aphisitworachorch\Console\Commands\DBMLParse;
+use Aphisitworachorch\Console\DBML;
+use Aphisitworachorch\Console\DBMLParse;
 use Aphisitworachorch\Controller\DBMLController;
 use Illuminate\Support\ServiceProvider;
 
