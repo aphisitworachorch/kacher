@@ -1,6 +1,6 @@
 <?php
 
-namespace Aphisitworachorch\Console;
+namespace Aphisitworachorch\Kacher\Console;
 
 use App\Http\Controllers\DBMLController;
 use Doctrine\DBAL\Exception;

@@ -2,9 +2,9 @@
 
 namespace Aphisitworachorch\Kacher;
 
-use Aphisitworachorch\Console\DBML;
-use Aphisitworachorch\Console\DBMLParse;
-use Aphisitworachorch\Controller\DBMLController;
+use Aphisitworachorch\Kacher\Console\DBML;
+use Aphisitworachorch\Kacher\Console\DBMLParse;
+use Aphisitworachorch\Kacher\Controller\DBMLController;
 use Illuminate\Support\ServiceProvider;
 
 class KacherServiceProvider extends ServiceProvider

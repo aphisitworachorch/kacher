@@ -1,6 +1,6 @@
 <?php
 
-namespace Aphisitworachorch\Controller;
+namespace Aphisitworachorch\Kacher\Controller;
 
 use Aphisitworachorch\Traits\DBMLSyntaxTraits;
 use App\Http\Controllers\Controller;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aphisitworachorch\Traits;
+namespace Aphisitworachorch\Kacher\Traits;
 
 trait DBMLSyntaxTraits
 {
