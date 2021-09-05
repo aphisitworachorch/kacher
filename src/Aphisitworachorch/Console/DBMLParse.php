@@ -2,7 +2,7 @@
 
 namespace Aphisitworachorch\Kacher\Console;
 
-use App\Http\Controllers\DBMLController;
+use Aphisitworachorch\Kacher\Controller\DBMLController;
 use Doctrine\DBAL\Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
@@ -23,16 +23,6 @@ class DBMLParse extends Command
      * @var string
      */
     protected $description = 'Database to DBML';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Execute the console command.

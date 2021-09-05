@@ -2,7 +2,7 @@
 
 namespace Aphisitworachorch\Kacher\Console;
 
-use Aphisitworachorch\Controller\DBMLController;
+use Aphisitworachorch\Kacher\Controller\DBMLController;
 use Doctrine\DBAL\Exception;
 use Illuminate\Console\Command;
 
@@ -21,16 +21,6 @@ class DBML extends Command
      * @var string
      */
     protected $description = 'Database Lister';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Execute the console command.

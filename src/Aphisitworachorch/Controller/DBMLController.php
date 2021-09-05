@@ -2,7 +2,7 @@
 
 namespace Aphisitworachorch\Kacher\Controller;
 
-use Aphisitworachorch\Traits\DBMLSyntaxTraits;
+use Aphisitworachorch\Kacher\Traits\DBMLSyntaxTraits;
 use App\Http\Controllers\Controller;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
