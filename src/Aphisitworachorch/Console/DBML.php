@@ -20,7 +20,7 @@ class DBML extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Database Lister';
 
     /**
      * Create a new command instance.

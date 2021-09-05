@@ -22,7 +22,7 @@ class DBMLParse extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Database to DBML';
 
     /**
      * Create a new command instance.
