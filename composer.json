@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Aphisitworachorch\\Kacher\\": "./src"
+            "Aphisitworachorch\\Kacher\\": "src/"
         }
     },
     "autoload-dev": {
