@@ -1,0 +1,42 @@
+{
+    "name": "aphisitworachorch/kacher",
+    "description": "Kacher is Laravel DB to DBML (dbdiagram.io/dbdocs.io)",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "laravel"
+    ],
+    "authors": [
+        {
+            "name": "Arsanandha Aphisitworachorch",
+            "email": "arsanandha.ap@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^7.0|^8.0",
+        "doctrine/dbal": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Aphisitworachorch\\Kacher\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Aphisitworachorch\\Kacher\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aphisitworachorch\\Kacher\\KacherServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0"
+    }
+}
