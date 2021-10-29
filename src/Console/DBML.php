@@ -20,7 +20,17 @@ class DBML extends Command
      *
      * @var string
      */
-    protected $description = 'Database Lister';
+    protected $description = 'Artisan Database Lister';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Execute the console command.

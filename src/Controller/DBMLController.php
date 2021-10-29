@@ -169,41 +169,52 @@ class DBMLController extends Controller
         }
     }
 
-    /**
-     * @throws Exception
-     */
-    public function parseToDBML(): string
+    public function getDatabasePlatform()
     {
-        $table = $this->getDatabaseTable ("array");
-        $syntax = "";
-        $foreign = "";
-        foreach($table as $info){
-            if($info['table_name']){
-                $syntax .= $this->table ($info['table_name']) . $this->start ();
-                foreach($info['columns'] as $col){
-                    $syntax .= $this->column ($col['name'],$col['type'],$col['special'],$col['note'],$col['is_nullable'],$col['default_value'],$col['length']);
-                }
-                if($info['indexes']){
-                    $syntax .= $this->index () . $this->start ();
-                    foreach($info['indexes'] as $index){
-                        $type = "";
-                        if($index['primary'] === "yes"){
-                            $type = "pk";
-                        }else if($index['unique'] === "yes"){
-                            $type = "unique";
-                        }
-                        $syntax .= $this->indexesKey ($index['columns'],$type);
+        $db = env('DB_CONNECTION');
+        $dbname = env('DB_DATABASE');
+        return $this->projectName($dbname,$db);
+    }
+
+    /**
+     */
+    public function parseToDBML()
+    {
+        try{
+            $table = $this->getDatabaseTable ("array");
+            $syntax = "";
+            $foreign = "";
+            $syntax .= $this->getDatabasePlatform();
+            foreach($table as $info){
+                if($info['table_name']){
+                    $syntax .= $this->table ($info['table_name']) . $this->start ();
+                    foreach($info['columns'] as $col){
+                        $syntax .= $this->column ($col['name'],$col['type'],$col['special'],$col['note'],$col['is_nullable'],$col['default_value'],$col['length']);
                     }
-                    $syntax .= "\t".$this->end();
-                }
-                $syntax .= $this->end ();
-                if($info['foreign_key']){
-                    foreach ($info['foreign_key'] as $fk){
-                        $syntax .= $this->foreignKey ($fk['from'],$fk['name'],$fk['table'],$fk['to'])."\n";
+                    if($info['indexes']){
+                        $syntax .= $this->index () . $this->start ();
+                        foreach($info['indexes'] as $index){
+                            $type = "";
+                            if($index['primary'] === "yes"){
+                                $type = "pk";
+                            }else if($index['unique'] === "yes"){
+                                $type = "unique";
+                            }
+                            $syntax .= $this->indexesKey ($index['columns'],$type);
+                        }
+                        $syntax .= "\t".$this->end();
+                    }
+                    $syntax .= $this->end ();
+                    if($info['foreign_key']){
+                        foreach ($info['foreign_key'] as $fk){
+                            $syntax .= $this->foreignKey ($fk['from'],$fk['name'],$fk['table'],$fk['to'])."\n";
+                        }
                     }
                 }
             }
+            return $syntax."\n";
+        }catch(Exception $e){
+            print_r($e->getMessage ());
         }
-        return $syntax."\n";
     }
 }
