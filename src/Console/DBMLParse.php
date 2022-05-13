@@ -15,7 +15,7 @@ class DBMLParse extends Command
      *
      * @var string
      */
-    protected $signature = 'dbml:parse {--dbdocs}';
+    protected $signature = 'dbml:parse {--dbdocs} {--custom}';
 
     /**
      * The console command description.
@@ -42,7 +42,12 @@ class DBMLParse extends Command
      */
     public function handle()
     {
-        $db = new DBMLController();
+        $custom_type = null;
+        if($this->option ("custom") != null){
+            $file = json_decode(file_get_contents(storage_path() . "/app/custom_type.json"), true);
+            $custom_type = $file;
+        }
+        $db = new DBMLController($custom_type);
         $artisan = $db->parseToDBML ();
         $database = env('DB_DATABASE');
         $rand = Str::random (8);

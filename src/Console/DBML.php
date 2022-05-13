@@ -13,7 +13,7 @@ class DBML extends Command
      *
      * @var string
      */
-    protected $signature = 'dbml:list';
+    protected $signature = 'dbml:list {--custom}';
 
     /**
      * The console command description.
@@ -40,7 +40,12 @@ class DBML extends Command
      */
     public function handle()
     {
-        $db = new DBMLController();
+        $custom_type = null;
+        if($this->option ("custom") != null){
+            $file = json_decode(file_get_contents(storage_path() . "/app/custom_type.json"), true);
+            $custom_type = $file;
+        }
+        $db = new DBMLController($custom_type);
         $artisan = $db->getDatabaseTable ("artisan");
         $bar = $this->output->createProgressBar (count($artisan));
         $bar->start ();

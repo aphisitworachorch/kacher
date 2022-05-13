@@ -20,8 +20,13 @@ class DBMLController extends Controller
     /**
      * @throws Exception
      */
-    public function __construct ()
+    public function __construct ($custom_type=null)
     {
+        if ($custom_type != null){
+            foreach($custom_type as $ct => $key) {
+                DB::connection()->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping($ct, $key);
+            }
+        }
         DB::connection()->getDoctrineSchemaManager()->getDatabasePlatform()->registerDoctrineTypeMapping('enum', 'string');
         $this->doctrine_instance = DB::connection()->getDoctrineSchemaManager();
     }
