@@ -12,6 +12,11 @@
 - For listing all tables in database : php artisan dbml:list (custom type --custom)
 - For Parse from DB to DBML : php artisan dbml:parse (custom type --custom / dbdocs abilities --dbdocs)
 
+## Customizable Type
+- Store file in /storage/app/custom_type.json
+- Example
+  - { "type": "target_type" }
+
 ## Credits
 
 - [Arsanandha Aphisitworachorch](https://github.com/aphisitworachorch)
