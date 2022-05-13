@@ -9,15 +9,8 @@
 `composer require aphisitworachorch/kacher`
 
 ## Usage
-- For listing all tables in database : php artisan dbml:list
-- For Parse from DB to DBML : php artisan dbml:parse
-
-## Testing
-Run the tests with:
-
-``` bash
-vendor/bin/phpunit
-```
+- For listing all tables in database : php artisan dbml:list (custom type --custom)
+- For Parse from DB to DBML : php artisan dbml:parse (custom type --custom / dbdocs abilities --dbdocs)
 
 ## Credits
 
