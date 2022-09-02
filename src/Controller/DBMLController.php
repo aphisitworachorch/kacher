@@ -155,7 +155,8 @@ class DBMLController extends Controller
                         "table_name" => $tb,
                         "columns" => implode("\n",$this->getColumns ($tb,$type)),
                         "foreign_key" => implode("\n",$this->getForeignKey ($tb,$type)),
-                        "indexes"=> implode("\n",$this->getIndexes ($tb,$type))
+                        "indexes"=> implode("\n",$this->getIndexes ($tb,$type)),
+                        "comment"=> $this->doctrine_instance->listTableDetails($tb)->getComment()
                     ];
                 }
                 return $data;
@@ -166,7 +167,8 @@ class DBMLController extends Controller
                         "table_name" => $tb,
                         "columns" => $this->getColumns ($tb,$type),
                         "foreign_key" => $this->getForeignKey ($tb,$type),
-                        "indexes"=> $this->getIndexes ($tb,$type)
+                        "indexes"=> $this->getIndexes ($tb,$type),
+                        "comment"=> $this->doctrine_instance->listTableDetails($tb)->getComment()
                     ];
                 }
                 return $data;
@@ -195,6 +197,9 @@ class DBMLController extends Controller
                     $syntax .= $this->table ($info['table_name']) . $this->start ();
                     foreach($info['columns'] as $col){
                         $syntax .= $this->column ($col['name'],$col['type'],$col['special'],$col['note'],$col['is_nullable'],$col['default_value'],$col['length']);
+                    }
+                    if($info['comment']){
+                      $syntax .= "\n\tNote: '".$info['comment']."'\n";
                     }
                     if($info['indexes']){
                         $syntax .= $this->index () . $this->start ();
