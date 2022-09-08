@@ -49,8 +49,9 @@ class DBML extends Command
         $artisan = $db->getDatabaseTable ("artisan");
         $bar = $this->output->createProgressBar (count($artisan));
         $bar->start ();
+        $this->output->newLine();
         foreach($artisan as $data){
-            $this->table(["table","columns","foreign_key","indexes"],[$data]);
+            $this->table(["table","columns","foreign_key","indexes","comment"],[$data]);
             $this->info("\n");
         }
         $bar->finish();
