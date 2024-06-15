@@ -29,7 +29,7 @@ trait DBMLSyntaxTraits
 
     public function index()
     {
-        return "\n\tindexes";
+        return "\n\tindexes ";
     }
 
     public function start()
@@ -98,11 +98,15 @@ trait DBMLSyntaxTraits
         }
 
         if($default){
-            $annotation[] = "default: '$default'";
+            $annotation[] = "default: " . ((str_starts_with($default, "'") && str_ends_with($default, "'")) ? $default : "'" . $default . "'");
         }
 
         if($length){
             $len_annotate = "($length)";
+        }
+
+        if (str_contains($type, ' ')) {
+            $type = '"'.$type.'"';
         }
 
         $results = implode(",",$annotation);
